@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Welcome</title>
+   </head>
+   <style>
+   #section{
+     text-align:center;
+     margin:25vh 75vh;
+     background-color:chocolate;
+     width:20vh;
+     height:20vh;
+     padding:15vh;
+   }
+   </style>
+   <body>
+<form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+    <div id="section">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}"  placeholder="Name" autofocus="autofocus">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}"  placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <input type="submit" value="Add User"> 
+    </div>  
+</form>
+       
+   </body>
+    
+</html>
